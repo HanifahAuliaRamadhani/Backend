@@ -14,10 +14,10 @@ router.get('/logout', logout)
 
 
 router.get('/note', getAllNotes)
-router.post('/new-note', createNote)
+router.post('/note', createNote)
 router.get('/note/:id', getOneNote)
-router.put('/edit-note/:id', updateOneNote)
-router.delete('/clear-note/:id',deleteOneNote)
+router.put('/note/:id', updateOneNote)
+router.delete('/note/:id',deleteOneNote)
 
 
 
