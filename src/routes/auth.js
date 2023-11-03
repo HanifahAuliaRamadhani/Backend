@@ -4,12 +4,23 @@ const { registerValidation, loginValidation } = require('../validators/auth');
 const { validationMiddleware } = require('../middlewares/validators-middleware');
 const {userAuth} = require('../middlewares/auth-middleware')
 const router = Router()
+const {createNote, getAllNotes, getOneNote, updateOneNote, deleteOneNote} = require('../controllers/noteController')
 
 router.get('/get-users', getUsers)
 router.get('/protected', userAuth, protected)
 router.post('/register', registerValidation, validationMiddleware, register)
 router.post('/login', loginValidation, validationMiddleware, login)
 router.get('/logout', logout)
+
+
+router.get('/note', getAllNotes)
+router.post('/new-note', createNote)
+router.get('/note/:id', getOneNote)
+router.put('/edit-note/:id', updateOneNote)
+router.delete('/clear-note/:id',deleteOneNote)
+
+
+
 
 
 module.exports = router;
